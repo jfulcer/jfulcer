@@ -1,0 +1,10 @@
+﻿@using System.Web.UI.WebControls
+@model dynamic
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h1>Remind Me!</h1>
+<p>Remind Me is a web application that allows you to create appointments or reminders that will be sent to your phone later when you need to remember something.</p>
+<p>@Html.ActionLink("Create a new Appointment or Reminder", "Create", new { Controller = "Appointments" }, new { @class = "btn btn-primary btn-xs"} ) to see how it works!</p>
