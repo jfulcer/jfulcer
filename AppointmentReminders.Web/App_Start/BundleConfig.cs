@@ -32,7 +32,7 @@ namespace AppointmentReminders.Web
             "~/Scripts/common/datetimepicker-init.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css"));
+                      "~/Content/bootstrap-theme.css"));
 
             bundles.Add(new StyleBundle("~/Content/datetime").Include(
                       "~/Content/bootstrap-datetimepicker*"));
