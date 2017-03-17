@@ -1,26 +1,46 @@
 ﻿@model AppointmentReminders.Web.Models.Appointment
 
-<div class="page-header">
-    <h1>New Appointment</h1>
-</div>
 
-@using (Html.BeginForm("Create", "Appointments", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
-{
-    @Html.Partial("_Form")
-    <div class="form-group">
-        <div class="col-lg-offset-2 col-lg-10">
-            <input type="submit" value="Create Appointment" class="btn btn-primary"/>
-            @Html.ActionLink("Cancel", "Index", new { Controller = "Appointments" }, new { @class = "btn btn-default" })
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Remind Me</title>
+
+    <!-- Custom Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+</head>
+
+<body id="page-top">
+    <h1>New Reminder</h1>
+    <img src="~/Content/home.jpg" width="100%" alt="home image" />
+    <hr />
+    <section>
+        <div>
+            <hr>
+            @using (Html.BeginForm("Create", "Appointments", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.Partial("_Form")
+                <div class="form-group">
+                    <div class="col-lg-offset-2 col-lg-10">
+                        <input type="submit" value="Create Reminder" class="btn btn-primary" />
+                        @Html.ActionLink("Cancel", "Index", new { Controller = "Appointments" }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+            }
         </div>
-    </div>
-}
+    </section>
+</body>
+</html>
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/form")
     @Scripts.Render("~/bundles/datetime")
 }
-
 @section Styles {
     @Styles.Render("~/Content/datetime")
 }

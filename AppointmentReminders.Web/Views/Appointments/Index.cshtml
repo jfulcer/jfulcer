@@ -1,6 +1,7 @@
 ﻿@using AppointmentReminders.Web.Extensions
 @model IEnumerable<AppointmentReminders.Web.Models.Appointment>
 
+<!-- Old code, commented out for reference. Delete before turning in.
 <div class="page-header">
     <h1>Appointments</h1>
 </div>
@@ -57,3 +58,78 @@
 </table>
 
 @Html.ActionLink("New", "Create", new { Controller = "Appointments" }, new { @class = "btn btn-primary" })
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Remind Me</title>
+
+        <!-- Custom Fonts -->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    </head>
+
+    <body id="page-top">
+        <h1>Current Reminders</h1>
+        <img src="~/Content/home.jpg" width="100%" alt="home image" />
+        <hr />
+        <section>
+            <div>
+                <hr>
+                <table class="table table-striped">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Id)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.PhoneNumber)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Time)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.CreatedAt)
+                        </th>
+                        <th>
+                            Actions
+                        </th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.ActionLink(item.Id.ToString(), "Details", new { Controller = "Appointments", id = item.Id })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PhoneNumber)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Time)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CreatedAt)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { Controller = "Appointments", id = item.Id }, new { @class = "btn btn-default btn-xs" })
+                                @Html.DeleteLink("Delete", "Appointments",
+                                new { id = item.Id },
+                                new { @class = "btn btn-danger btn-xs", onclick = "return confirm('Are you sure?');" })
+                            </td>
+                        </tr>
+                    }
+                </table>
+
+                @Html.ActionLink("New", "Create", new { Controller = "Appointments" }, new { @class = "btn btn-primary" })
+            </div>
+        </section>
+    </body>
+</html>
